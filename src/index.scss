@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@layer components {
+  input,
+  button {
+    @apply outline-none;
+  }
+  .App {
+    @apply min-h-screen overflow-auto;
+  }
+  //Navbar Styles
+  .Navbar {
+    @apply flex items-center justify-between p-8 lg:px-20 lg:py-12;
+    &__logo {
+      @apply w-24 lg:w-28 object-fill;
+    }
+    &__links {
+      @apply flex space-x-4  lg:space-x-8 font-header text-sm lg:text-lg text-primaryDarkBlue;
+      li {
+        @apply cursor-pointer;
+      }
+    }
+  }
+  //HeroSection Styles
+  .HeroSection {
+    @apply p-8 lg:px-20 lg:py-12 space-y-10 lg:flex lg:flex-row-reverse lg:items-center lg:gap-4 lg:justify-between;
+    &__img {
+      @apply lg:w-1/2;
+    }
+    &__content {
+      @apply text-center space-y-6 flex flex-col lg:text-left lg:max-w-xl relative;
+      // completed adjust font style
+      &__title {
+        @apply font-body text-3xl text-primaryDarkBlue leading-10 font-bold;
+      }
+      &__text {
+        @apply font-body text-lg text-primaryDarkBlue px-4 leading-7 lg:px-0;
+      }
+      &__signup {
+        @apply flex flex-col lg:flex-row w-full max-w-md
+        lg:max-w-none space-y-4 self-center lg:self-start lg:space-y-0 lg:space-x-4;
+        &__input {
+          @apply px-4  rounded-md py-4 lg:w-full;
+        }
+        &__btn {
+          @apply bg-accentBrightBlue hover:bg-accentBrightBlue/50 transition-colors duration-300 ease-in-out rounded-md py-4 text-white font-body text-lg tracking-wide shadow-md shadow-neturalLightGray lg:w-1/2;
+        }
+      }
+    }
+  }
+  //ProductSection Styles
+  .ProductSection {
+    @apply p-8 lg:p-20 overflow-x-clip space-y-8 relative mt-16 lg:mt-24 bg-productSection lg:flex lg:flex-row-reverse lg:justify-between
+    lg:items-start;
+    &__curve {
+      @apply bg-mobileCurve md:bg-desktopCurve -z-20 absolute -top-12 lg:-top-20 -left-2 lg:-left-24 -right-2 lg:right-0 bg-no-repeat w-[120%] lg:w-[140%] h-full;
+    }
+    &__top {
+      @apply lg:w-1/2;
+    }
+    &__content {
+      @apply space-y-6 text-primaryDesaturatedBlue font-body lg:max-w-2xl;
+      &__title {
+        @apply text-center lg:text-start lg:text-4xl font-header text-xl font-bold text-primaryDarkBlue;
+      }
+      &__text1 {
+        @apply pr-8 lg:pr-32;
+      }
+      &__testimonial {
+        @apply space-y-8 flex flex-col items-center lg:items-start;
+        &__link {
+          @apply text-accentModerateCyan hover:text-accentModerateCyan/50 hover:border-accentModerateCyan/50 cursor-pointer transition-colors duration-300 ease-in-out  flex space-x-2 items-center border-b-2 border-b-accentModerateCyan;
+          img {
+            @apply w-8 object-fill;
+          }
+        }
+        &__card {
+          @apply bg-white space-y-4 max-w-sm w-full shadow-md shadow-neturalLightGray rounded-md p-8;
+
+          &__text {
+            @apply font-body text-sm text-primaryDarkBlue leading-relaxed;
+          }
+          &__bottom {
+            @apply flex space-x-4  items-center;
+            &__avater {
+              @apply w-12 object-fill rounded-full;
+            }
+            &__span {
+              p {
+                @apply first:text-lg first:font-bold text-primaryDarkBlue first:tracking-wide last:text-sm;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //CTA styles
+  .CTA {
+    @apply bg-primaryDesaturatedBlue px-10 py-10 flex flex-col space-y-4 text-center lg:text-start lg:flex-row lg:px-20 lg:justify-between;
+    &__top {
+      @apply space-y-4 lg:max-w-md;
+      &__title {
+        @apply text-xl text-white font-header font-bold;
+      }
+      &__text {
+        @apply text-white/80 font-body leading-6;
+      }
+    }
+
+    &__bottom {
+      @apply w-full relative space-y-2 max-w-sm self-center;
+      &__input {
+        @apply px-2 w-full  py-2;
+      }
+      &__btn {
+        @apply w-full lg:w-1/2 bg-accentBrightBlue hover:bg-accentBrightBlue/50 transition-colors duration-300 ease-in-out  py-2 text-white font-body text-base shadow-sm shadow-black/50;
+      }
+    }
+  }
+  //Footer Styles
+  .Footer {
+    @apply bg-primaryDarkBlue p-16 space-y-8 font-header text-white fill-white lg:flex lg:justify-between lg:p-20;
+    &__top {
+      @apply space-y-2 lg:w-full relative -top-9;
+      svg {
+        @apply mb-10 lg:mb-4;
+      }
+      p {
+        @apply flex items-center space-x-6 hover:text-accentBrightBlue   transition-colors duration-300 ease-in-out cursor-pointer;
+      }
+    }
+    &__links {
+      @apply space-y-10 lg:space-y-0 lg:flex lg:justify-between lg:w-full;
+      li {
+        @apply hover:text-accentBrightBlue transition-colors duration-300 ease-in-out cursor-pointer;
+      }
+      &1 {
+        @apply space-y-4;
+      }
+      &2 {
+        @apply space-y-4;
+      }
+    }
+    &__icons {
+      @apply flex space-x-6 justify-center lg:items-start lg:w-full;
+      svg {
+        @apply w-6;
+        path {
+          @apply hover:fill-accentBrightBlue transition-colors duration-300 ease-in-out cursor-pointer;
+        }
+      }
+    }
+  }
+}
