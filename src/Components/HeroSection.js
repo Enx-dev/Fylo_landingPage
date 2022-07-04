@@ -9,11 +9,18 @@ const HeroSection = () => {
     formState: { errors },
     handleSubmit,
     resetField,
+    clearErrors,
   } = useForm();
   const submitHandler = () => {
     resetField("email");
   };
-
+  const clear = () => {
+    console.log("called");
+    setTimeout(() => {
+      clearErrors("email");
+    }, 5000);
+    return;
+  };
   return (
     <section id='Hero_Section' className='HeroSection'>
       <div className='HeroSection__img'>
@@ -54,7 +61,10 @@ const HeroSection = () => {
               <p className='absolute -bottom-8 text-red-500'>{message}</p>
             )}
           />
-          <button type='submit' className='HeroSection__content__signup__btn'>
+          <button
+            onClick={() => clear()}
+            type='submit'
+            className='HeroSection__content__signup__btn'>
             Get Started
           </button>
         </form>

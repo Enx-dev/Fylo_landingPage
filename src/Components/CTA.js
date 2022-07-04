@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 
@@ -6,13 +6,19 @@ const Newsletter = () => {
   const {
     register,
     formState: { errors },
+    clearErrors,
     handleSubmit,
     resetField,
   } = useForm();
+  const clear = () => {  console.log("called");
+    setTimeout(() => {
+      clearErrors("email");
+    }, 5000);
+    return;
+  };
   const submitHandler = () => {
     resetField("email");
   };
-
   return (
     <section id='Call-to-action' className='CTA'>
       <div className='CTA__top'>
@@ -45,7 +51,10 @@ const Newsletter = () => {
             <p className='absolute -bottom-8 text-red-500'>{message}</p>
           )}
         />
-        <button type='submit' className='CTA__bottom__btn'>
+        <button
+          onClick={() => clear()}
+          type='submit'
+          className='CTA__bottom__btn'>
           Get Started For Free
         </button>
       </form>
